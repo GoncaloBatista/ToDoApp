@@ -35,6 +35,58 @@
         2020
     </footer>
     <!--footer * end-->
+    <script>
+        var lista = document.querySelector("ul");
+        var button = document.querySelector("button");
+        var input = document.querySelector("input");
+
+        var items = [
+            "Fazer compras",
+            "Cortar o cabelo",
+            "Fazer trabalhos"
+        ]
+
+        function mostrarItems() {
+            lista.innerHTML = "";
+            for (item of items) {
+                var itemLi = document.createElement("li");
+                var itemDivTexto = document.createElement("div");
+                itemDivTexto.setAttribute("class", "item-texto");
+                var itemTexto = document.createTextNode(item);
+                itemLi.appendChild(itemDivTexto);
+                itemDivTexto.appendChild(itemTexto);
+                lista.appendChild(itemLi);
+
+                var removerElemento = document.createElement("div");
+                removerElemento.setAttribute("class", "btn-remover");
+                var removerTexto = document.createTextNode(" ✖");
+                itemLi.appendChild(removerElemento);
+                removerElemento.appendChild(removerTexto);
+
+                var itemPosicao = items.indexOf(item);
+                removerElemento.setAttribute("onclick", "removerItem(" + itemPosicao + ")");
+            }
+        }
+        mostrarItems();
+
+        function adicionarItem() {
+            var itemTexto = input.value;
+            if (itemTexto.length != '') {
+                items.push(itemTexto);
+                mostrarItems();
+                input.value = "";
+            } else {
+                alert('Escreva qual a tarefa que quer realizar.');
+            }
+        }
+
+        button.onclick = adicionarItem;
+
+        function removerItem(itemPosicao) {
+            items.splice(itemPosicao, 1);
+            mostrarItems();
+        }
+    </script>
 </body>
 
 </html>
