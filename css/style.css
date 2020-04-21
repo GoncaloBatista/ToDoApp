@@ -103,3 +103,14 @@ main .lista ul li .btn-remover:hover{
     color: var(--color-secundaria);
     transition: color .3s;
 }
+
+/* footer */
+footer {
+    width: 100%;
+    background-color: var(--color-primaria);
+    color: var(--color-branco);
+    text-align: center;
+    letter-spacing: 0.05em;
+    font-size: 2vw;
+    font-weight: 500;
+  }
